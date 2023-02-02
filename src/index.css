@@ -11,3 +11,7 @@
 .color{
     background-color: palevioletred;
 }
+
+.active{
+  color: green;
+}
