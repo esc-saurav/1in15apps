@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import menu from "./Data";
 
+const allCategories = ["all", ...new Set(menu.map((menu) => menu.category))];
+
 const Menu = () => {
   const [menuItems, setMenuItems] = useState(menu);
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState(allCategories);
 
   const filterItems = (categories) => {
     const newItems = menu.filter((menu) => menu.category === categories);
     return setMenuItems(newItems);
   };
+
 
   return (
     <>
@@ -16,30 +19,13 @@ const Menu = () => {
         <div className="flex  flex-col text-center">
           <h1 className="text-4xl font-bold">Our Menu</h1>
           <div className="flex gap-5 items-center justify-center py-4">
-            <button
-              onClick={() => filterItems("all")}
-              className="text-yellow-600 border border-yellow-600 px-2 py-1"
-            >
-              All{" "}
-            </button>
-            <button
-              onClick={() => filterItems("breakfast")}
-              className="text-yellow-600 border border-yellow-600 px-2 py-1"
-            >
-              Breakfast
-            </button>
-            <button
-              onClick={() => filterItems("lunch")}
-              className="text-yellow-600 border border-yellow-600 px-2 py-1"
-            >
-              Lunch
-            </button>
-            <button
-              onClick={() => filterItems("shakes")}
-              className="text-yellow-600 border border-yellow-600 px-2 py-1"
-            >
-              Shakes{" "}
-            </button>
+            {categories.map((category, index) => {
+              return (
+                <button onClick={() => filterItems(category)} key={index}>
+                  {category}
+                </button>
+              );
+            })}
           </div>
         </div>
         <div className="grid gap-4 md:grid-cols-2">
