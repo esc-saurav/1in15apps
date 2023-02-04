@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Values from "values.js";
+import Singlecolor from "./Singlecolor";
 
 const Color = () => {
   const [color, setColor] = useState("");
   const [list, setList] = useState([]);
   const [error, setError] = useState(false);
+  const [alert, setAlert] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,6 +19,8 @@ const Color = () => {
       console.log(err);
     }
   };
+
+
 
   return (
     <div>
@@ -40,7 +44,11 @@ const Color = () => {
           </button>
         </form>
       </div>
-      <div className="px-2">Colors</div>
+      <div className="px-2">
+        {list.map((item, i) => {
+          return <Singlecolor key={i} {...item} />;
+        })}
+      </div>
     </div>
   );
 };
