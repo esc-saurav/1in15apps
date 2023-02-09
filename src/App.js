@@ -6,7 +6,8 @@
 // import Tabs from "./components/tabs/Tabs";
 // import Slider from "./components/slider/Slider";
 // import Lorem from "./components/lorem/Lorem";
-import Color from "./components/color-generator/Color";
+// import Color from "./components/color-generator/Color";
+import Grocery from "./components/grocery/Grocery";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       {/* <Tabs/> */}
       {/* <Slider/> */}
       {/* <Lorem/> */}
-      <Color/>
+      {/* <Color/> */}
+      <Grocery/>
     </>
   );
 }
