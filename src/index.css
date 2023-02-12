@@ -6,12 +6,16 @@
 
 * {
     font-family: "Poppins", sans-serif;
+
   }
 
-.color{
-    background-color: palevioletred;
-}
+
 
 .active{
   color: green;
+}
+
+
+.animation {
+  @apply transition-all duration-300 ease-in-out;
 }

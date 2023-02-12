@@ -7,9 +7,13 @@
 // import Slider from "./components/slider/Slider";
 // import Lorem from "./components/lorem/Lorem";
 // import Color from "./components/color-generator/Color";
-import Grocery from "./components/grocery/Grocery";
+// import Grocery from "./components/grocery/Grocery";
+import Mobilenavbar from "./components/navbar/MobileNavbar";
+import Navbar from "./components/navbar/Navbar";
+import { useState } from "react";
 
 function App() {
+  const [openNavbar, setOpenNavbar] = useState(false);
   return (
     <>
       {/* <Birthday /> */}
@@ -21,7 +25,12 @@ function App() {
       {/* <Slider/> */}
       {/* <Lorem/> */}
       {/* <Color/> */}
-      <Grocery/>
+      {/* <Grocery/> */}
+      <Navbar
+        opennavbar={openNavbar}
+        openSidebar={() => setOpenNavbar((prev) => !prev)}
+      />
+      <Mobilenavbar open={openNavbar} />
     </>
   );
 }
