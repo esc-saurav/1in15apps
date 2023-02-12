@@ -12,8 +12,8 @@ const getLocalItems = () => {
 const Grocery = () => {
   const [name, setName] = useState("");
   const [list, setList] = useState(getLocalItems);
-  // const [isEditing, setEditing] = useState(false);
-  const [edit, setEdit] = useState("Edit");
+  const [isEditing, setEditing] = useState(false);
+  const [edit, setEdit] = useState(null);
   const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
 
   const handleSubmit = (e) => {
@@ -24,22 +24,25 @@ const Grocery = () => {
     e.target.reset();
   };
 
-  const handleDelete = (index) => {
+  const handleDelete = (id) => {
     const newlist = [...list];
-    newlist.splice(index, 1);
+    newlist.splice(id, 1);
     setList(newlist);
     setAlert({ show: true, msg: `Item has been deleted!!`, type: "del" });
   };
 
-  const handleClearALL = (index) => {
+  const handleClearALL = (id) => {
     const newlist = [...list];
-    newlist.splice(index);
+    newlist.splice(id);
     setList(newlist);
     setAlert({ show: true, msg: "All items deleted!!", type: "del" });
   };
 
-  const handleUpdate = () => {
-   
+  const handleUpdate = (id) => {
+    const specificitem = list.find((item) => item.id === id);
+    setEditing(true);
+    setEdit(id);
+    setName(specificitem.title);
   };
 
   useEffect(() => {
@@ -65,8 +68,18 @@ const Grocery = () => {
             className="bg-blue-50 w-full outline-none"
             type="text"
             placeholder=" e.g eggs"
+            value={name}
           />
-          <button className="bg-blue-200 rounded-sm px-3 py-1">Submit</button>
+          {edit ? (
+            <button
+              onClick={() => handleUpdate()}
+              className="bg-blue-200 rounded-sm px-3 py-1"
+            >
+              Update
+            </button>
+          ) : (
+            <button className="bg-blue-200 rounded-sm px-3 py-1">Submit</button>
+          )}
         </form>
         <div className="w-full p-5">
           {list.map((item) => {
@@ -76,10 +89,10 @@ const Grocery = () => {
                 <li>{title}</li>
                 <div className="flex items-center gap-3">
                   <button
-                    onClick={handleUpdate}
+                    onClick={() => handleUpdate(id)}
                     className="bg-blue-500 text-white px-2 py-1 rounded-md"
                   >
-                    Update
+                    Edit
                   </button>
                   <button
                     onClick={handleDelete}
