@@ -8,12 +8,13 @@
 // import Lorem from "./components/lorem/Lorem";
 // import Color from "./components/color-generator/Color";
 // import Grocery from "./components/grocery/Grocery";
-import Mobilenavbar from "./components/navbar/MobileNavbar";
-import Navbar from "./components/navbar/Navbar";
-import { useState } from "react";
+// import Mobilenavbar from "./components/navbar/MobileNavbar";
+// import Navbar from "./components/navbar/Navbar";
+// import { useState } from "react";
+import Type from "./components/typingtest/Type";
 
 function App() {
-  const [openNavbar, setOpenNavbar] = useState(false);
+  // const [openNavbar, setOpenNavbar] = useState(false);
   return (
     <>
       {/* <Birthday /> */}
@@ -26,11 +27,12 @@ function App() {
       {/* <Lorem/> */}
       {/* <Color/> */}
       {/* <Grocery/> */}
-      <Navbar
+      {/* <Navbar
         opennavbar={openNavbar}
         openSidebar={() => setOpenNavbar((prev) => !prev)}
       />
-      <Mobilenavbar open={openNavbar} />
+      <Mobilenavbar open={openNavbar} /> */}
+      <Type/>
     </>
   );
 }
