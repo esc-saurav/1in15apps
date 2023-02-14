@@ -2,6 +2,7 @@ import React from "react";
 import { useGlobalContext } from "./Context";
 import logo from "../images/logo.svg";
 import { FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext();
@@ -23,7 +24,7 @@ const Navbar = () => {
     <nav className="md:w-9/12 mx-auto py-3" onMouseOver={handleSubmenu}>
       <div className="px-3 py-2 md:flex items-center justify-between ">
         <div className="flex justify-between">
-          <img className="rounded-md  bg-black" src={logo} alt="" />
+          <img className="rounded-md w-24 h-12  bg-black" src={logo} alt="" />
           <button onClick={openSidebar} className="md:hidden block">
             <FaBars className="h-8 w-8 p-2 bg-black text-white rounded-md" />
           </button>
