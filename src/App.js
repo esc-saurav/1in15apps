@@ -11,13 +11,10 @@
 // import Mobilenavbar from "./components/navbar/MobileNavbar";
 // import Navbar from "./components/navbar/Navbar";
 // import { useState } from "react";
-import Type from "./components/typingtest/Type";
+// import Type from "./components/typingtest/Type";
 
-function App() {
-  // const [openNavbar, setOpenNavbar] = useState(false);
-  return (
-    <>
-      {/* <Birthday /> */}
+import Stripe from "./stripecomponent/pages/Stripe";
+ {/* <Birthday /> */}
       {/* <Tours/> */}
       {/* <Review /> */}
       {/* <Qna/> */}
@@ -32,7 +29,14 @@ function App() {
         openSidebar={() => setOpenNavbar((prev) => !prev)}
       />
       <Mobilenavbar open={openNavbar} /> */}
-      <Type/>
+      // const [openNavbar, setOpenNavbar] = useState(false);
+
+function App() {
+  return (
+    <>
+          {/* <Type/> */}
+
+     <Stripe/>
     </>
   );
 }
