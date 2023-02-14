@@ -13,23 +13,35 @@ const Navbar = () => {
     const bottom = tempBtn.bottom - 3;
     openSubmenu(page, { center, bottom });
   };
+
+  const handleSubmenu = (e) => {
+    if (!e.target.classList.contains("link-btn")) {
+      closeSubmenu();
+    }
+  };
   return (
-    <nav className="md:w-9/12 mx-auto">
+    <nav className="md:w-9/12 mx-auto py-3" onMouseOver={handleSubmenu}>
       <div className="px-3 py-2 md:flex items-center justify-between ">
         <div className="flex justify-between">
-          <img className="h-24 w-24" src={logo} />
+          <img className="rounded-md  bg-black" src={logo} alt="" />
           <button onClick={openSidebar} className="md:hidden block">
             <FaBars className="h-8 w-8 p-2 bg-black text-white rounded-md" />
           </button>
         </div>
         <ul className="md:block hidden">
-          <li className="flex space-x-10">
-            <button onMouseOver={displaySubmenu}>Products</button>
-            <button onMouseOver={displaySubmenu}>Developers</button>
-            <button onMouseOver={displaySubmenu}>Company</button>
+          <li className="flex space-x-10 font-bold text-[#696969]">
+            <button className="link-btn" onMouseOver={displaySubmenu}>
+              Products
+            </button>
+            <button className="link-btn" onMouseOver={displaySubmenu}>
+              Developers
+            </button>
+            <button className="link-btn" onMouseOver={displaySubmenu}>
+              Company
+            </button>
           </li>
         </ul>
-        <button className="bg-black px-2 py-1 text-white rounded-sm md:block hidden">
+        <button className="bg-black px-2 py-1 text-white rounded-md md:block hidden">
           Sign In
         </button>
       </div>

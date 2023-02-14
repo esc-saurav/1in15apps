@@ -1,13 +1,12 @@
 import React from "react";
 import { useGlobalContext } from "./Context";
 import phoneImg from "../images/phone.svg";
-import hero from "../images/hero.svg";
 
 const Hero = () => {
   const { closeSubmenu } = useGlobalContext();
 
   return (
-    <section className="hero">
+    <section className="hero py-10 w-full mx-auto" onMouseOver={closeSubmenu}>
       <div className="md:flex  items-center md:w-4/6 mx-auto gap-4">
         <article className="md:w-3/5 w-3/4 mx-auto flex flex-col gap-3">
           <h1 className="lg:text-6xl md:text-5xl text-4xl font-[700]">
@@ -20,13 +19,13 @@ const Hero = () => {
             manage their businesses online.
           </p>
           <div>
-            <button className="bg-black text-white px-3 py-1 rounded-sm ">
+            <button className="bg-black text-white px-3 py-1 rounded-md ">
               Start Now
             </button>
           </div>
         </article>
         <article className="md:block hidden">
-          <img className="shadow-2xl" src={phoneImg} width="90%" />
+          <img className="shadow-2xl" src={phoneImg} width="90%" alt=""/>
         </article>
       </div>
     </section>

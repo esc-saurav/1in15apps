@@ -17,8 +17,6 @@
   
 }
 
-
-
 .sidebar {
   width: 90vw;
   height: 95vh;
@@ -39,7 +37,7 @@
   z-index: -1;
   transition: all 0.3s linear;
   transform: scale(0);
-  background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
 }
 .sidebar-wrapper.show {
   visibility: visible;
