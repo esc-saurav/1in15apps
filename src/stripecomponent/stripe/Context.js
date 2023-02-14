@@ -1,11 +1,15 @@
 import React, { useState, useContext } from "react";
 import sublinks from "./Data";
+import { useRef } from "react";
+import ClickoutsideHook from "./ClickoutsideHook";
 
 const AppContext = React.createContext();
 
 export const AppProvider = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isSubmenuOpen, setIsSubmenuOpen] = useState(true);
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+
+  const [location, setLocation] = useState({});
 
   const openSidebar = () => {
     setIsSidebarOpen(true);
@@ -15,13 +19,17 @@ export const AppProvider = ({ children }) => {
     setIsSidebarOpen(false);
   };
 
-  const openSubmenu = () => {
+  const openSubmenu = (text, coordinates) => {
+    setLocation(coordinates);
     setIsSubmenuOpen(true);
   };
 
   const closeSubmenu = () => {
     setIsSubmenuOpen(false);
   };
+
+  const ref = useRef();
+  ClickoutsideHook(ref, () => setIsSubmenuOpen(false));
 
   return (
     <AppContext.Provider
@@ -32,6 +40,8 @@ export const AppProvider = ({ children }) => {
         closeSidebar,
         isSidebarOpen,
         isSubmenuOpen,
+        location,
+        ref,
       }}
     >
       {children}

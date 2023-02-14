@@ -10,7 +10,7 @@ const Stripe = () => {
       <Navbar />
       <Hero />
       <Sidebar />
-      {/* <Submenu /> */}
+      <Submenu />
     </div>
   );
 };

@@ -5,6 +5,14 @@ import { FaBars } from "react-icons/fa";
 
 const Navbar = () => {
   const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext();
+
+  const displaySubmenu = (e) => {
+    const page = e.target.textContent;
+    const tempBtn = e.target.getBoundingClientRect();
+    const center = (tempBtn.left + tempBtn.right) / 2;
+    const bottom = tempBtn.bottom - 3;
+    openSubmenu(page, { center, bottom });
+  };
   return (
     <nav className="md:w-9/12 mx-auto">
       <div className="px-3 py-2 md:flex items-center justify-between ">
@@ -16,9 +24,9 @@ const Navbar = () => {
         </div>
         <ul className="md:block hidden">
           <li className="flex space-x-10">
-            <button>Products</button>
-            <button>Developers</button>
-            <button>Company</button>
+            <button onMouseOver={displaySubmenu}>Products</button>
+            <button onMouseOver={displaySubmenu}>Developers</button>
+            <button onMouseOver={displaySubmenu}>Company</button>
           </li>
         </ul>
         <button className="bg-black px-2 py-1 text-white rounded-sm md:block hidden">
