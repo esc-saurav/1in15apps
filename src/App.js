@@ -1,5 +1,8 @@
+import Pagination from "./components/pagination/Pagination";
+
 function App() {
-  return <Covid />;
+  return <Pagination />;
+  
 }
 
 export default App;
