@@ -1,8 +1,7 @@
-import Pagination from "./components/pagination/Pagination";
+import Bmi from "./components/bmicalculator/Bmi";
 
 function App() {
-  return <Pagination />;
-  
+  return <Bmi />;
 }
 
 export default App;
