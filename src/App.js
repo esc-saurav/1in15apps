@@ -1,7 +1,7 @@
-import Bmi from "./components/bmicalculator/Bmi";
+import StartingPage from "./components/quiz/StartingPage";
 
 function App() {
-  return <Bmi />;
+  return <StartingPage/>
 }
 
 export default App;
