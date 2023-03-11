@@ -1,7 +1,7 @@
-import StartingPage from "./components/quiz/StartingPage";
+import Tailwind from "./components/tailwindCss/Tailwind.jsx";
 
 function App() {
-  return <StartingPage/>
+  return <Tailwind/>
 }
 
 export default App;
